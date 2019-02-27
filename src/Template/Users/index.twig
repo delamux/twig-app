@@ -13,48 +13,26 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th>{{ Paginator.sort('id')|raw }}</th>
                 <th>{{ Paginator.sort('username')|raw }}</th>
                 <th>{{ Paginator.sort('email')|raw }}</th>
                 <th>{{ Paginator.sort('password')|raw }}</th>
                 <th>{{ Paginator.sort('first_name')|raw }}</th>
                 <th>{{ Paginator.sort('last_name')|raw }}</th>
-                <th>{{ Paginator.sort('token')|raw }}</th>
-                <th>{{ Paginator.sort('token_expires')|raw }}</th>
-                <th>{{ Paginator.sort('api_token')|raw }}</th>
-                <th>{{ Paginator.sort('activation_date')|raw }}</th>
-                <th>{{ Paginator.sort('secret')|raw }}</th>
-                <th>{{ Paginator.sort('secret_verified')|raw }}</th>
-                <th>{{ Paginator.sort('tos_date')|raw }}</th>
                 <th>{{ Paginator.sort('active')|raw }}</th>
                 <th>{{ Paginator.sort('is_superuser')|raw }}</th>
-                <th>{{ Paginator.sort('role')|raw }}</th>
-                <th>{{ Paginator.sort('created')|raw }}</th>
-                <th>{{ Paginator.sort('modified')|raw }}</th>
                 <th class="actions">{{ __('Actions') }}</th>
             </tr>
         </thead>
         <tbody>
             {% for user in users %}
             <tr>
-                <td>{{ user.id|h }}</td>
                 <td>{{ user.username|h }}</td>
                 <td>{{ user.email|h }}</td>
                 <td>{{ user.password|h }}</td>
                 <td>{{ user.first_name|h }}</td>
                 <td>{{ user.last_name|h }}</td>
-                <td>{{ user.token|h }}</td>
-                <td>{{ user.token_expires|h }}</td>
-                <td>{{ user.api_token|h }}</td>
-                <td>{{ user.activation_date|h }}</td>
-                <td>{{ user.secret|h }}</td>
-                <td>{{ user.secret_verified|h }}</td>
-                <td>{{ user.tos_date|h }}</td>
                 <td>{{ user.active|h }}</td>
                 <td>{{ user.is_superuser|h }}</td>
-                <td>{{ user.role|h }}</td>
-                <td>{{ user.created|h }}</td>
-                <td>{{ user.modified|h }}</td>
                 <td class="actions">
                     {{ Html.link(__('View'), {'action' : 'view', 0 : user.id})|raw }}
                     {{ Html.link(__('Edit'), {'action' : 'edit', 0 : user.id})|raw }}

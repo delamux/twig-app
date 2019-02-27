@@ -59,7 +59,10 @@ class PostsController extends AppController
             }
             $this->Flash->error(__('The post could not be saved. Please, try again.'));
         }
-        $this->set(compact(['post', 'users']));
+        $this->set([
+            'post' => $post,
+            'user' => $users
+        ]);
     }
 
     /**
