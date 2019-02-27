@@ -24,8 +24,8 @@
             </tr>
         </thead>
         <tbody>
-            {% for user in users %}
-            <tr>
+        {% for user in users %}
+                <tr>
                 <td>{{ user.username|h }}</td>
                 <td>{{ user.email|h }}</td>
                 <td>{{ user.password|h }}</td>
