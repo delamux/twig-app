@@ -1,0 +1,17 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading">{{ __('Actions') }}</li>
+        <li>{{ Html.link(__('List Posts'), {'action' : 'index'})|raw }}</li>
+    </ul>
+</nav>
+<div class="posts form large-9 medium-8 columns content">
+    {{ Form.create(post)|raw }}
+    <fieldset>
+        <legend>{{ __('Add Post') }}</legend>
+        {{ Form.input('user_id')|raw }}
+        {{ Form.input('title')|raw }}
+        {{ Form.input('body')|raw }}
+    </fieldset>
+    {{ Form.button(__('Submit'))|raw }}
+    {{ Form.end()|raw }}
+</div>

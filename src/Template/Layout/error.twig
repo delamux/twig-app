@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{ Html.charset() }}
+    <title>
+        {{ _view.fetch('title') }}
+    </title>
+    {{ Html.meta('icon') }}
+
+    {{ Html.css('base.css') }}
+    {{ Html.css('style.css') }}
+
+    {{ _view.fetch('meta') }}
+    {{ _view.fetch('css') }}
+    {{ _view.fetch('script') }}
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>{{ __('Error') }}</h1>
+        </div>
+        <div id="content">
+            {{ Flash.render() }}
+
+            {{ _view.fetch('content') }}
+        </div>
+        <div id="footer">
+            {{ Html.link(__('Back'), 'javascript:history.back()') }}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading">{{ __('Actions') }}</li>
+        <li>{{ Form.postLink(
+                __('Delete'),
+                {'action' : 'delete', 0 : user.id},
+                {'confirm' : __('Are you sure you want to delete # {0}?', user.id)}
+            )|raw
+            }}
+        </li>
+        <li>{{ Html.link(__('List Users'), {'action' : 'index'})|raw }}</li>
+        <li>{{ Html.link(__('List Posts'), {'controller' : 'Posts', 'action' : 'index'})|raw }}</li>
+        <li>{{ Html.link(__('New Post'), {'controller' : 'Posts', 'action' : 'add'})|raw }}</li>
+        <li>{{ Html.link(__('List Social Accounts'), {'controller' : 'SocialAccounts', 'action' : 'index'})|raw }}</li>
+        <li>{{ Html.link(__('New Social Account'), {'controller' : 'SocialAccounts', 'action' : 'add'})|raw }}</li>
+    </ul>
+</nav>
+<div class="users form large-9 medium-8 columns content">
+    {{ Form.create(user)|raw }}
+    <fieldset>
+        <legend>{{ __('Edit User') }}</legend>
+        {{ Form.input('username')|raw }}
+        {{ Form.input('email')|raw }}
+        {{ Form.input('password')|raw }}
+        {{ Form.input('first_name')|raw }}
+        {{ Form.input('last_name')|raw }}
+        {{ Form.input('token')|raw }}
+        {{ Form.input('token_expires', {'empty' : true})|raw }}
+        {{ Form.input('api_token')|raw }}
+        {{ Form.input('activation_date', {'empty' : true})|raw }}
+        {{ Form.input('secret')|raw }}
+        {{ Form.input('secret_verified')|raw }}
+        {{ Form.input('tos_date', {'empty' : true})|raw }}
+        {{ Form.input('active')|raw }}
+        {{ Form.input('is_superuser')|raw }}
+        {{ Form.input('role')|raw }}
+    </fieldset>
+    {{ Form.button(__('Submit'))|raw }}
+    {{ Form.end()|raw }}
+</div>

@@ -1,0 +1,28 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading">{{ __('Actions') }}</li>
+        <li>{{ Html.link(__('Edit Comment'), {'action' : 'edit', 0 : comment.id})|raw }}</li>
+        <li>{{ Form.postLink(__('Delete Comment'), {'action' : 'delete', 0 : comment.id}, {'confirm' : __('Are you sure you want to delete # {0}?', comment.id)})|raw }}</li>
+        <li>{{ Html.link(__('List Comments'), {'action' : 'index'})|raw }}</li>
+        <li>{{ Html.link(__('New Comment'), {'action' : 'add'})|raw }}</li>
+        <li>{{ Html.link(__('List Posts'), {'controller' : 'Posts', 'action' : 'index'})|raw }}</li>
+        <li>{{ Html.link(__('New Post'), {'controller' : 'Posts', 'action' : 'add'})|raw }}</li>
+    </ul>
+</nav>
+<div class="comments view large-9 medium-8 columns content">
+    <h3>{{ comment.id|h }}</h3>
+    <table class="vertical-table">
+        <tr>
+            <th>{{ __('Post') }}</th>
+            <td>{{ comment.has('post') ? Html.link(comment.post.title, {'controller' : 'Posts', 'action' : 'view', 0 : comment.post.id})|raw : '' }}</td>
+        </tr>
+        <tr>
+            <th>{{ __('Id') }}</th>
+            <td>{{ Number.format(comment.id) }}</td>
+        </tr>
+    </table>
+    <div class="row">
+        <h4>{{ __('Comment') }}</h4>
+        {{ Text.autoParagraph(comment.comment|h)|raw }}
+    </div>
+</div>

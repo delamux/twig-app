@@ -1,0 +1,45 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading">{{ __('Actions') }}</li>
+        <li>{{ Html.link(__('New Post'), {'action' : 'add'})|raw }}</li>
+    </ul>
+</nav>
+<div class="posts index large-9 medium-8 columns content">
+    <h3>{{ __('Posts') }}</h3>
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>{{ Paginator.sort('id')|raw }}</th>
+                <th>{{ Paginator.sort('user_id')|raw }}</th>
+                <th>{{ Paginator.sort('title')|raw }}</th>
+                <th>{{ Paginator.sort('created')|raw }}</th>
+                <th>{{ Paginator.sort('modified')|raw }}</th>
+                <th class="actions">{{ __('Actions') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{ Number.format(post.id) }}</td>
+                <td>{{ post.user_id|h }}</td>
+                <td>{{ post.title|h }}</td>
+                <td>{{ post.created|h }}</td>
+                <td>{{ post.modified|h }}</td>
+                <td class="actions">
+                    {{ Html.link(__('View'), {'action' : 'view', 0 : post.id})|raw }}
+                    {{ Html.link(__('Edit'), {'action' : 'edit', 0 : post.id})|raw }}
+                    {{ Form.postLink(__('Delete'), {'action' : 'delete', 0 : post.id}, {'confirm' : __('Are you sure you want to delete # {0}?', post.id)})|raw }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="paginator">
+        <ul class="pagination">
+            {{ Paginator.prev('< ' ~ __('previous'))|raw }}
+            {{ Paginator.numbers()|raw }}
+            {{ Paginator.next(__('next') ~ ' >')|raw }}
+        </ul>
+        <p>{{ Paginator.counter()|raw }}</p>
+    </div>
+</div>

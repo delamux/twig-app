@@ -1,0 +1,24 @@
+<nav class="large-3 medium-4 columns" id="actions-sidebar">
+    <ul class="side-nav">
+        <li class="heading">{{ __('Actions') }}</li>
+        <li>{{ Form.postLink(
+                __('Delete'),
+                {'action' : 'delete', 0 : post.id},
+                {'confirm' : __('Are you sure you want to delete # {0}?', post.id)}
+            )|raw
+            }}
+        </li>
+        <li>{{ Html.link(__('List Posts'), {'action' : 'index'})|raw }}</li>
+    </ul>
+</nav>
+<div class="posts form large-9 medium-8 columns content">
+    {{ Form.create(post)|raw }}
+    <fieldset>
+        <legend>{{ __('Edit Post') }}</legend>
+        {{ Form.input('user_id')|raw }}
+        {{ Form.input('title')|raw }}
+        {{ Form.input('body')|raw }}
+    </fieldset>
+    {{ Form.button(__('Submit'))|raw }}
+    {{ Form.end()|raw }}
+</div>
